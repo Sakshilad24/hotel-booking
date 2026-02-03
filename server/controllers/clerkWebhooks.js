@@ -39,12 +39,12 @@ const clerkWebhooks = async (req, res)=>{
                 break;
             }
 
-            case "user.created":{
+            case "user.deleted":{
                 await User.findByIdAndDelete(data.id);
                 break;
             }
 
-            dafault:
+            default:
                 break;
         }
         res.json({success: true, message: "Webhook Recieved"})
